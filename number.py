@@ -1,4 +1,4 @@
-#!/Users/seongyongyou/opt/anaconda3/bin/python3
+#!/usr/bin/env python3
 print(1+1)
 print(2-1)
 print(3*4)
