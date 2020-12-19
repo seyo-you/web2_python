@@ -2,8 +2,7 @@
 print("Content-Type: text/html; charset=UTF-8\n") # HTML is following
 print() # blank line, end of headers
 import cgi
-form = cgi.FieldStorage()
-pageId = form["id"].value
+pageId = 'Welcome'
 print('''
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
