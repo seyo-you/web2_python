@@ -8,5 +8,6 @@ print(a[0])
 print(a[1])
 print(a[2:5])
 print(a[-6:])
+print(a[:-5])
 #repeat
 print((a+'\n')*2)
