@@ -3,7 +3,10 @@ print("Content-Type: text/html; charset=UTF-8\n") # HTML is following
 print() # blank line, end of headers
 import cgi
 form = cgi.FieldStorage()
-pageId = form["id"].value
+if 'id' in form:
+    pageId = form["id"].value
+else:
+    pageId = 'Welcome'
 print('''
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -12,7 +15,7 @@ print('''
   <meta charset="utf-8">
 </head>
 <body>
-  <h1><a href="index_no_id.py">WEB</a></h1>
+  <h1><a href="index.py">WEB</a></h1>
   <ol>
     <li><a href="index.py?id=HTML">HTML</a></li>
     <li><a href="index.py?id=CSS">CSS</a></li>
