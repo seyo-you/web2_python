@@ -3,10 +3,13 @@ print("Content-Type: text/html; charset=UTF-8\n") # HTML is following
 print() # blank line, end of headers
 import cgi, os
 
-files = os.listdir('data')
-listStr = ''
-for item in files:
-    listStr = listStr + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
+def getList():
+    files = os.listdir('data')
+    listStr = ''
+    for item in files:
+        listStr = listStr + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
+    return listStr
+
 form = cgi.FieldStorage()
 if 'id' in form:
     pageId = form["id"].value
@@ -33,4 +36,4 @@ print('''
   </form>
 </body>
 </html>
-'''.format(title=pageId, desc=description, listStr=listStr, form_default_title=pageId, form_default_description=description))
+'''.format(title=pageId, desc=description, listStr=getList(), form_default_title=pageId, form_default_description=description))
