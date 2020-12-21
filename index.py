@@ -1,14 +1,7 @@
 #!/usr/bin/env python3
 print("Content-Type: text/html; charset=UTF-8\n") # HTML is following
 print() # blank line, end of headers
-import cgi, os
-
-def getList():
-    files = os.listdir('data')
-    listStr = ''
-    for item in files:
-        listStr = listStr + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
-    return listStr
+import cgi, os, view 
 
 form = cgi.FieldStorage()
 if 'id' in form:
@@ -43,4 +36,4 @@ print('''
   <p>{desc}</p>
 </body>
 </html>
-'''.format(title=pageId, desc=description, listStr=getList(), update_link=update_link, delete_action=delete_action))
+'''.format(title=pageId, desc=description, listStr=view.getList(), update_link=update_link, delete_action=delete_action))
